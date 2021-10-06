@@ -1,0 +1,28 @@
+.form {
+  width: 60%;
+  margin: 10px auto 0 auto;
+  padding: 2%;
+  border: 1px solid #cccccc3f;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 2px 2px 10px 5px #cccccc3f;
+  background-color: #fff;
+}
+
+.input-main,
+.input-secondary {
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+}
+
+.input-main {
+  justify-content: space-between;
+
+  input {
+    max-width: 45%;
+  }
+}
+
+.input-secondary {
+  flex-direction: column;
+}
