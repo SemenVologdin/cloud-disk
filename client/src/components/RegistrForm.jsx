@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { registration } from '../actions/user';
 
@@ -8,8 +9,8 @@ import Checkbox from './Checkbox';
 import Footer from './Footer';
 
 const RegistrForm = () => {
-  const [firstName, setFirstName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
+  // const [firstName, setFirstName] = React.useState('');
+  // const [lastName, setLastName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [againPassword, setAgainPassword] = React.useState('');
@@ -18,7 +19,7 @@ const RegistrForm = () => {
     <div className="wrapper">
       <div className="form">
         <Header />
-        <div className="input-main">
+        {/* <div className="input-main">
           <Input
             class="input"
             value={firstName}
@@ -33,7 +34,7 @@ const RegistrForm = () => {
             type="text"
             placeholder="Фамилия"
           />
-        </div>
+        </div> */}
         <div className="input-secondary">
           <Input
             class="input"
@@ -65,12 +66,12 @@ const RegistrForm = () => {
         <button
           className="button"
           onClick={() => {
-            registration(firstName, lastName, email, password);
+            registration(email, password);
           }}>
           Регистрация
         </button>
       </div>
-      <Footer />
+      <Footer isLogin={true} />
     </div>
   );
 };
