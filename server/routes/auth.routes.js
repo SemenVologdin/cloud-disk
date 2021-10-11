@@ -7,6 +7,9 @@ const config = require('config');
 const User = require('../models/User');
 const { check } = require('express-validator');
 
+const fileService = require('../services/fileService');
+const File = require('../models/File');
+
 const router = new Router();
 
 router.post(
@@ -19,7 +22,7 @@ router.post(
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(400).json({ message: 'Произошла ошибка', errors });
+        return res.status(400).json({ message: 'Неверный запрос', errors });
       }
 
       const { email, password } = req.body;
@@ -27,15 +30,16 @@ router.post(
       const candidate = await User.findOne({ email });
 
       if (candidate) {
-        return res.status(400).json({ message: 'Пользователь уже существует' });
+        return res.status(400).json({ message: `Пользователь с емэйлом ${email} существует` });
       }
       const hashPassword = await bcrypt.hash(password, 5);
       const user = new User({ email, password: hashPassword });
       await user.save();
+      await fileService.createDir(new File({ user: user.id, name: '' }));
       return res.json({ message: 'Юзер сохранен' });
     } catch (error) {
       console.log(error);
-      res.send({ message: 'Server error' });
+      res.send({ message: 'Server error from auth' });
     }
   },
 );

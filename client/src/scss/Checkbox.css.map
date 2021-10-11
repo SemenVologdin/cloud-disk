@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACR,SAAS,EAAE,GAAG;EACd,MAAM,EAAE,SAAS;CAKlB;;AAPD,AAIE,SAJO,CAIP,KAAK,CAAC;EACJ,WAAW,EAAE,MAAM;CACpB",
+    "sources": [
+        "Checkbox.scss"
+    ],
+    "names": [],
+    "file": "Checkbox.css"
+}

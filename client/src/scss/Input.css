@@ -1,0 +1,15 @@
+.input {
+  font-size: 16px;
+  padding: 0.3em 0.2em;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0;
+  -webkit-transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom: 1px solid #318ce7;
+}
+/*# sourceMappingURL=Input.css.map */
